@@ -14,12 +14,13 @@ const BORDER_OFFSET_Y = 6;      // tweak in px
 
 
 const BU_IMAGES = {
-  lifescience: "/images/lifescience.png",
-  dairy: "/images/dairy.png",
-  brewery: "/images/brewery.png",
-  sugar: "/images/sugar.png",
-  farming: "/images/farming.png"
+  lifescience: `${import.meta.env.BASE_URL}images/lifescience.png`,
+  dairy: `${import.meta.env.BASE_URL}images/dairy.png`,
+  brewery: `${import.meta.env.BASE_URL}images/brewery.png`,
+  sugar: `${import.meta.env.BASE_URL}images/sugar.png`,
+  farming: `${import.meta.env.BASE_URL}images/farming.png`
 };
+
 
 const BU_COLORS = {
   lifescience: "#c3c3c3",
@@ -100,7 +101,7 @@ export default function Globe2D() {
   });
 
   useEffect(() => {
-    fetch("/data/worldcountries.json")
+    fetch(`${import.meta.env.BASE_URL}data/worldcountries.json`)
       .then((res) => res.json())
       .then((data) => {
         setGeoData(data);
@@ -274,7 +275,7 @@ export default function Globe2D() {
           onPointerDown={handlePointerDown}
         >
           <img
-            src="/images/map.png"
+            src={`${import.meta.env.BASE_URL}images/map.png`}
             alt="World map"
             className="globe2d-map-image"
             draggable={false}
@@ -341,7 +342,7 @@ export default function Globe2D() {
         </div>
 
         <img
-          src="/images/background.png"
+          src={`${import.meta.env.BASE_URL}images/background.png`}
           alt="Globe cutout"
           className="globe2d-cutout"
           draggable={false}
